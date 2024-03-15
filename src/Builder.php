@@ -103,7 +103,7 @@ class Builder
         return $this;
     }
 
-    public function trackTotalHist(bool $trackTotalHits): static
+    public function trackTotalHits(bool $trackTotalHits): static
     {
         $this->trackTotalHits = $trackTotalHits;
 
