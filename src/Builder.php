@@ -20,6 +20,8 @@ class Builder
 
     protected ?string $searchIndex = null;
 
+    protected ?bool $trackTotalHits = null;
+
     protected ?int $size = null;
 
     protected ?int $from = null;
@@ -79,6 +81,10 @@ class Builder
             $params['index'] = $this->searchIndex;
         }
 
+        if ($this->trackTotalHits !== null) {
+            $params['track_total_hits'] = $this->trackTotalHits;
+        }
+
         if ($this->size !== null) {
             $params['size'] = $this->size;
         }
@@ -93,6 +99,13 @@ class Builder
     public function index(string $searchIndex): static
     {
         $this->searchIndex = $searchIndex;
+
+        return $this;
+    }
+
+    public function trackTotalHist(bool $trackTotalHits): static
+    {
+        $this->trackTotalHits = $trackTotalHits;
 
         return $this;
     }
